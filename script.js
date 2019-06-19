@@ -26,8 +26,8 @@ function apiSearch(event) {
 				let nameItem = item.name || item.title,
 					releaseDate = item.release_date || item.first_air_date || "Неизвестно",
 					imgSrc = item.poster_path ? ("https://image.tmdb.org/t/p/w185" + item.poster_path) : "./assets/unknow.jpg",
-					description = item.overview,
-					rate = item.vote_average,
+					description = item.overview || "",
+					rate = item.vote_average || "Неизвестно",
 					href = "https://www.themoviedb.org/" + item.media_type + "/" + item.id;
 
 				inner += `
