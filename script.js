@@ -31,8 +31,8 @@ function apiSearch(event) {
 					href = "https://www.themoviedb.org/" + item.media_type + "/" + item.id;
 
 				inner += `
-					<div class="movie-item">
-						<a href="${href}" target="_blank" class="movie-href">
+					<a href="${href}" target="_blank" class="movie-href">		
+						<div class="movie-item">
 							<img class="poster-film float-letf" src="${imgSrc}" alt=""/>
 							<div style="text-align: right; width: 100%;">
 								<span class="badge badge-dark" style="font-size: large">Rate: ${rate}</span>
@@ -40,8 +40,8 @@ function apiSearch(event) {
 							<h4 class="text-left">${nameItem}</h4>
 							<strong>(${releaseDate})</strong>
 							<p>${description}</p>
-						</a>
-					</div>`;
+						</div>
+					</a>`;
 			});
 			if (inner !== '') {
 				movie.innerHTML = inner;
