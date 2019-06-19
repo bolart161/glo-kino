@@ -33,6 +33,7 @@ function requestApi(method, url) {
 			 releaseDate = item.release_date || item.first_air_date || "Неизвестно",
 			 imgSrc = item.poster_path ? ("https://image.tmdb.org/t/p/w185" + item.poster_path) : "./assets/unknow.jpg",
 			 description = item.overview,
+			 rate = item.vote_average,
 			 href = "https://www.themoviedb.org/" + item.media_type + "/" + item.id;
 
 			inner += '<div class="movie-item">'
@@ -41,6 +42,7 @@ function requestApi(method, url) {
 				+ '<h4 class="text-left">' + nameItem + '</h4>'
 				+ '<strong>(' + releaseDate + ')</strong>'
 				+ '<p>' + description + '</p>'
+				+ '<span class="badge badge-info" style="font-size: large">'+ rate +'</span>'
 				+ '</a>'
 				+ '</div>';
 		});
