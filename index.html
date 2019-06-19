@@ -9,20 +9,16 @@
     <title>Glo-Kinipoisk</title>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="container">
-            <a href="index.html" class="navbar-brand">Glo-Kinopoisk</a>
-        </div>
+    <nav class="navbar navbar-dark bg-dark justify-content-between">
+        <a href="index.html" class="navbar-brand">Glo-Kinopoisk</a>
+        <form id="search-form" class="form-inline text-center">
+            <input type="search" class="form-control mr-sm-2" id="searchText"
+                   placeholder="Введите название..." aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+        <h4 class="text-right" style="color: #fff;">Поиск фильмов</h4>
     </nav>
     <div class="container">
-        <div class="jumbotron">
-            <h3 class="text-center">Поиск фильмов</h3>
-            <form id="search-form">
-                <input type="text" class="form-control" id="searchText"
-                       placeholder="Введите название...">
-            </form>
-        </div>
-
         <div id="movies" class="row"></div>
     </div>
     <script src="./script.js"></script>
