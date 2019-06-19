@@ -3,7 +3,7 @@ const movie = document.querySelector('#movies');
 
 function apiSearch(e) {
 	e.preventDefault();
-	let searchText = document.querySelector('.form-control').value,
+	const searchText = document.querySelector('.form-control').value,
 	server = 'https://api.themoviedb.org/3/search/multi?api_key=fc80ddabdf82d0b07ef9f66b40290b39&language=ru&query=' + searchText;
 	requestApi('GET', server);
 }
@@ -27,11 +27,12 @@ function requestApi(method, url) {
 
 		let inner = '';
 		output.results.forEach(function (item) {
-			let nameItem = item.name || item.title;
-			let releaseDate = item.release_date || item.first_air_date;
-			let imgSrc = "https://image.tmdb.org/t/p/w185" + item.poster_path;
-			let description = item.overview;
-			let href = "https://www.themoviedb.org/" + item.media_type + "/" + item.id;
+			let nameItem = item.name || item.title,
+			 releaseDate = item.release_date || item.first_air_date || "Неизвестно",
+			 imgSrc = "https://image.tmdb.org/t/p/w185" + item.poster_path,
+			 description = item.overview,
+			 href = "https://www.themoviedb.org/" + item.media_type + "/" + item.id;
+
 			inner += '<div class="movie-item">'
 				+ '<a href="' + href + '" target="_blank" class="movie-href">'
 				+ '<img class="poster-film float-letf" src="' + imgSrc + '"  alt=""/>'
@@ -41,6 +42,7 @@ function requestApi(method, url) {
 				+ '</a>'
 				+ '</div>';
 		});
+
 		movie.innerHTML = inner;
 		document.querySelector('.form-control').value = '';
 	});
