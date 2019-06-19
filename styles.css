@@ -1,15 +1,16 @@
 .movie-item {
     border: 1px solid grey;
-    border-radius: 10px;
+    border-radius: .25rem;
     padding-left: 0px;
     margin: 5px 0;
     width: 100%;
+    text-align: justify;
 }
 
 .poster-film {
     float: left!important;
     margin-right: 10px;
-    border-radius: 10px 0 0 10px;
+    border-radius: .25rem 0 0 .25rem;
 }
 
 .movie-href {

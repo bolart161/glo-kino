@@ -34,10 +34,12 @@ function apiSearch(event) {
 					<div class="movie-item">
 						<a href="${href}" target="_blank" class="movie-href">
 							<img class="poster-film float-letf" src="${imgSrc}" alt=""/>
+							<div style="text-align: right; width: 100%;">
+								<span class="badge badge-dark" style="font-size: large">Rate: ${rate}</span>
+							</div>
 							<h4 class="text-left">${nameItem}</h4>
 							<strong>(${releaseDate})</strong>
 							<p>${description}</p>
-							<span class="badge badge-info" style="font-size: large">${rate}</span>
 						</a>
 					</div>`;
 			});
