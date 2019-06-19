@@ -29,7 +29,18 @@ function requestApi(method, url) {
 		output.results.forEach(function (item) {
 			let nameItem = item.name || item.title;
 			let releaseDate = item.release_date || item.first_air_date;
-			inner += '<li class="list-group-item d-flex justify-content-between align-items-center">' +  nameItem + '<span class="badge badge-primary badge-pill">'+ releaseDate + '</span>' + '</li>';
+			let imgSrc = "https://image.tmdb.org/t/p/w185" + item.poster_path;
+			let discription = item.overview;
+			let href = "https://www.themoviedb.org/" + item.media_type + "/" + item.id;
+			inner += '<div class="movie-item">'
+				+ '<a href="' + href + '" target="_blank" class="movie-href">'
+				+ '<img class="poster-film float-letf" src="' + imgSrc + '"  alt=""/>'
+				+ '<h4 class="text-left">' + nameItem + '</h4>'
+				+ '<strong>(' + releaseDate + ')</strong>'
+				+ '<p>' + discription + '</p>'
+				+ '</a>'
+				+ '</div>';
+
 		});
 		movie.innerHTML = inner;
 	});

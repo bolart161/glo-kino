@@ -1,0 +1,23 @@
+.movie-item {
+    border: 1px solid grey;
+    border-radius: 10px;
+    padding-left: 0px;
+    margin: 5px 0;
+    width: 100%;
+}
+
+.poster-film {
+    float: left!important;
+    margin-right: 10px;
+    border-radius: 10px 0 0 10px;
+}
+
+.movie-href {
+    color: black;
+    text-decoration: none;
+}
+
+.movie-href:hover {
+    color: black;
+    text-decoration: none;
+}
