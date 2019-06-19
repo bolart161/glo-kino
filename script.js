@@ -3,9 +3,11 @@ const movie = document.querySelector('#movies');
 
 function apiSearch(e) {
 	e.preventDefault();
-	const searchText = document.querySelector('.form-control').value,
-	server = 'https://api.themoviedb.org/3/search/multi?api_key=fc80ddabdf82d0b07ef9f66b40290b39&language=ru&query=' + searchText;
-	requestApi('GET', server);
+	const searchText = document.querySelector('.form-control').value;
+	if (searchText.trim() !== '') {
+		const server = 'https://api.themoviedb.org/3/search/multi?api_key=fc80ddabdf82d0b07ef9f66b40290b39&language=ru&query=' + searchText;
+		requestApi('GET', server);
+	}
 }
 
 searchForm.addEventListener('submit', apiSearch);
@@ -19,7 +21,7 @@ function requestApi(method, url) {
 		if (request.readyState !== 4) return;
 
 		if (request.status !== 200) {
-			console.error('error: ' + request.status);
+			console.log('error: ' + request.status);
 			return;
 		}
 
@@ -29,7 +31,7 @@ function requestApi(method, url) {
 		output.results.forEach(function (item) {
 			let nameItem = item.name || item.title,
 			 releaseDate = item.release_date || item.first_air_date || "Неизвестно",
-			 imgSrc = "https://image.tmdb.org/t/p/w185" + item.poster_path,
+			 imgSrc = item.poster_path ? ("https://image.tmdb.org/t/p/w185" + item.poster_path) : "./assets/unknow.jpg",
 			 description = item.overview,
 			 href = "https://www.themoviedb.org/" + item.media_type + "/" + item.id;
 
@@ -42,8 +44,9 @@ function requestApi(method, url) {
 				+ '</a>'
 				+ '</div>';
 		});
-
-		movie.innerHTML = inner;
+		if (inner !== '') {
+			movie.innerHTML = inner;
+		}
 		document.querySelector('.form-control').value = '';
 	});
 
