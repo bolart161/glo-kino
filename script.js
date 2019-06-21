@@ -101,7 +101,7 @@ function showFullInfo() {
 			<h4 class="col-12 text-center text-info mb-4">${output.name || output.title}</h4>
 			<h5 class="col-12 text-center">Жанры: ${genres.trim().substring(0,genres.trim().length-1)}</h5>
 			<div class="col-5">
-				<img class="img-fluid img-thumbnail mb-4" src="https://image.tmdb.org/t/p/w500${output.poster_path}"
+				<img class="img-fluid img-thumbnail mb-4" src="${(output.poster_path)? `https://image.tmdb.org/t/p/w500${output.poster_path}`: './assets/unknow.jpg' }"
 					alt="${output.name || output.title}"
 				/>
 				${ (output.homepage) ? `<p class="text-center text-info mb-2"><a class="btn btn-primary" href="${output.homepage}" target="_blank">Официальная страница</a></p>` : ""}
